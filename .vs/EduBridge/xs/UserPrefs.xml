@@ -1,0 +1,58 @@
+﻿<Properties StartupConfiguration="{65EE975A-C535-488D-B6D8-D75F83070B5B}|https">
+  <MonoDevelop.Ide.ItemProperties.EduBridge.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="EduBridge.API/Controllers/DepartmentsController.cs">
+    <Files>
+      <File FileName="EduBridge.API/Program.cs" Line="29" Column="1" IsPinned="True" />
+      <File FileName="EduBridge.API/EduBridge.API.csproj" Line="25" Column="14" IsPinned="True" />
+      <File FileName="EduBridge.API/Data/Configurations/CollegeConfiguration.cs" />
+      <File FileName="EduBridge.API/Data/College.cs" Line="1" Column="1" />
+      <File FileName="EduBridge.API/Data/EduBridgeDbContext.cs" />
+      <File FileName="EduBridge.API/Data/Department.cs" />
+      <File FileName="EduBridge.API/Data/Course.cs" />
+      <File FileName="EduBridge.API/Data/Room.cs" />
+      <File FileName="EduBridge.API/Data/Section.cs" />
+      <File FileName="EduBridge.API/Data/Student.cs" />
+      <File FileName="EduBridge.API/Data/Teacher.cs" />
+      <File FileName="EduBridge.API/Migrations/20240215214504_Initial Migration.cs" />
+      <File FileName="EduBridge.API/Models/Department/BaseDepartmentDto.cs" Line="6" Column="24" />
+      <File FileName="EduBridge.API/Models/Department/CreateDepartmentDto.cs" Line="6" Column="48" />
+      <File FileName="EduBridge.API/Models/Department/GetDepartmentsDto.cs" />
+      <File FileName="EduBridge.API/Contracts/IGenericRepository.cs" Line="13" Column="28" />
+      <File FileName="EduBridge.API/Contracts/IDepartmentRepository.cs" Line="6" Column="41" />
+      <File FileName="EduBridge.API/Repository/GenericRepository.cs" Line="39" Column="1" />
+      <File FileName="EduBridge.API/Repository/DepartmentsRepository.cs" Line="4" Column="1" />
+      <File FileName="EduBridge.API/Controllers/WeatherForecastController.cs" Line="1" Column="1" />
+      <File FileName="EduBridge.API/Controllers/DepartmentsController.cs" Line="33" Column="51" />
+      <File FileName="EduBridge.API/Models/Department/DepartmentDto.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EduBridge" expanded="True">
+            <Node name="NuGet.Config files" expanded="True" />
+            <Node name="EduBridge.API" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Configurations" expanded="True" />
+              <Node name="Contracts" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="DepartmentsController.cs" selected="True" />
+              </Node>
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Department" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="Repository" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
