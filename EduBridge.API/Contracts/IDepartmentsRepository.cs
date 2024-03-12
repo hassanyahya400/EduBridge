@@ -5,6 +5,7 @@ namespace EduBridge.API.Contracts
 {
 	public interface IDepartmentsRepository : IGenericRepository<Department> 
 	{
+
 	}
 }
 

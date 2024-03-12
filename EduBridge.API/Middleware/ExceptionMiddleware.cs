@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Net;
 using EduBridge.API.Exceptions;
+using EduBridge.API.Models.GenericResponse;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Newtonsoft.Json;
 
 namespace EduBridge.API.Middleware
@@ -8,6 +10,7 @@ namespace EduBridge.API.Middleware
 	public class ExceptionMiddleware
 	{
 		private readonly RequestDelegate _next;
+
 		private readonly ILogger<ExceptionMiddleware> _logger;
 
 		public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
@@ -34,9 +37,8 @@ namespace EduBridge.API.Middleware
 			httpContext.Response.ContentType = "application/json";
 			HttpStatusCode statusCode = HttpStatusCode.InternalServerError;
 
-			ErrorDetails errorDetails = new ErrorDetails
+			ErrorResponse errorResponse = new ErrorResponse
 			{
-				ErrorType = "Failure", // placeholder
 				ErrorMessage = $"{ex.Message}"
 			};
 
@@ -44,22 +46,15 @@ namespace EduBridge.API.Middleware
 			{
 				case NotFoundException notFoundException:
 					statusCode = HttpStatusCode.NotFound;
-					errorDetails.ErrorType = "Not Found";
 					break;
+
 				default:
 					break;
 			}
 
-			string response = JsonConvert.SerializeObject(errorDetails);
+			string response = JsonConvert.SerializeObject(errorResponse);
 			httpContext.Response.StatusCode = (int)statusCode;
 			return httpContext.Response.WriteAsync(response);
-		}
-
-		public class ErrorDetails
-		{
-			public string? ErrorType { get; set; }
-
-			public string? ErrorMessage { get; set; }
 		}
 	}
 }

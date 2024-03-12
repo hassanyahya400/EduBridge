@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EduBridge.API.Data
 {
-    [Table("Room")]
+    [Table("Rooms")]
     public class Room
     {
         [Key]
@@ -13,6 +13,8 @@ namespace EduBridge.API.Data
         public string? Name { get; set; }
 
         public string? ShortName { get; set; }
+
+        public string? Type { get; set; } //Hall | Seminar Room | Theartre | Workshop | Lab | Field
 
         [Required]
         public int Capacity { get; set; }

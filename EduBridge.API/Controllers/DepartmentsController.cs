@@ -8,45 +8,68 @@ using EduBridge.API.Data;
 using EduBridge.API.Exceptions;
 using EduBridge.API.Models;
 using EduBridge.API.Models.Department;
+using EduBridge.API.Models.GenericResponse;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduBridge.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
+    //[Authorize]
     public class DepartmentsController : ControllerBase
     {
-        private EduBridgeDbContext _eduBridgeDbContext;
         private readonly IMapper _mapper;
+
         private readonly IDepartmentsRepository _departmentsRepository;
 
-        public DepartmentsController(EduBridgeDbContext eduBridgeDbContext, IMapper mapper, IDepartmentsRepository departmentRepository)
+        public DepartmentsController (IMapper mapper, IDepartmentsRepository departmentRepository)
         {
-            this._eduBridgeDbContext = eduBridgeDbContext;
             this._mapper = mapper;
             this._departmentsRepository = departmentRepository;
         }
 
         // GET: api/Departments
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<GetDepartmentsDto>>> GetAll()
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<DepartmentDto>>> GetAll()
         {
             var departments = await _departmentsRepository.GetAllAsync();
+            var result = _mapper.Map<List<DepartmentDto>>(departments);
 
-            return Ok(_mapper.Map<List<DepartmentDto>>(departments));
+            return Ok(new SuccessResponse
+            {
+                Message = "Departments retrieved successfully",
+                Data = result
+            });
+        }
+
+        // GET: api/Departments?StartIndex=1
+        [HttpGet]
+        public async Task<ActionResult<PagedResponse<DepartmentDto>>> GetAll([FromQuery] QueryParameters queryParameters)
+        {
+            var result = await _departmentsRepository.GetAllAsync<DepartmentDto>(queryParameters);
+
+            return Ok(result);
         }
 
         // GET: api/Departments/5
         [HttpGet("{id}", Name = "Get")]
-        public async Task<ActionResult<DepartmentDto>> Get(int id)
+        public async Task<ActionResult<DepartmentDto>> Get(string id)
         {
             var department = await _departmentsRepository.GetOneAsync(id);
 
-            if (department is null) throw new NotFoundException("Department", id);
+            if (department is null)
+            {
+                throw new NotFoundException("Department", id);
+            }
 
-            return Ok(department);
+            return Ok(new SuccessResponse
+            {
+                Message = "Department retrieved successfully",
+                Data = department
+            });
         }
 
         // POST: api/Departments
@@ -57,12 +80,15 @@ namespace EduBridge.API.Controllers
 
             await _departmentsRepository.AddAsync(newDepartment);
 
-            return NoContent();
+            return Created("",new SuccessResponse
+            {
+                Message = "Department created successfully"
+            });
         }
 
         // PUT: api/Departments/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] CreateDepartmentDto updateDepartmentDto)
+        public async Task<ActionResult> Put(string id, [FromBody] CreateDepartmentDto updateDepartmentDto)
         {
             var department = await _departmentsRepository.GetOneAsync(id) ?? throw new NotFoundException("Department", id);
 
@@ -70,16 +96,22 @@ namespace EduBridge.API.Controllers
 
             await _departmentsRepository.UpdateAsync(id, department);
 
-            return NoContent();
+            return Ok(new SuccessResponse
+            {
+                Message = $"Department id({id}) updated successfully"
+            });
         }
 
         // DELETE: api/Department/5
         [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(string id)
         {
-            _departmentsRepository.DeleteAsync(id);
+            await _departmentsRepository.DeleteAsync(id);
 
-            return NoContent();
+            return Ok(new SuccessResponse
+            {
+                Message = $"Department id: {id} deleted successfully"
+            });
         }
     }
 }

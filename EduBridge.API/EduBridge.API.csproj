@@ -20,6 +20,8 @@
     <PackageReference Include="MySql.Data" Version="8.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.12" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +34,8 @@
     <None Remove="Repository\" />
     <None Remove="Exceptions\" />
     <None Remove="Middleware\" />
+    <None Remove="Models\Authentication\" />
+    <None Remove="Models\User\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -44,5 +48,7 @@
     <Folder Include="Repository\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Middleware\" />
+    <Folder Include="Models\Authentication\" />
+    <Folder Include="Models\User\" />
   </ItemGroup>
 </Project>

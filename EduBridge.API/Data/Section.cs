@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EduBridge.API.Data
 {
-    [Table("Section")]
+    [Table("Sections")]
     public class Section
     {
         [Key]

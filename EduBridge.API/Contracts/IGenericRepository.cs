@@ -1,4 +1,6 @@
 ﻿using System;
+using EduBridge.API.Models;
+using EduBridge.API.Models.GenericResponse;
 
 namespace EduBridge.API.Contracts
 {
@@ -6,15 +8,18 @@ namespace EduBridge.API.Contracts
 	{
 		Task<List<T>> GetAllAsync();
 
-		Task<T?> GetOneAsync(int? id);
+        Task<List<TEntity>> GetAllByDepartmentAsync<TEntity>(int departmentId) where TEntity : class;
+
+		Task<PagedResponse<TResult>> GetAllAsync<TResult>(QueryParameters queryParameters);
+
+		Task<T?> GetOneAsync(string id);
 
 		Task<T> AddAsync(T entity);
 
-		Task UpdateAsync(int id, T entity);
+		Task UpdateAsync(string id, T entity);
 
-		Task DeleteAsync(int id);
+		Task DeleteAsync(string id);
 
-		Task<bool> Exists(int id);
-		
+		Task<bool> Exists(string id);
 	}
 }

@@ -1,58 +1,83 @@
 ﻿<Properties StartupConfiguration="{65EE975A-C535-488D-B6D8-D75F83070B5B}|https">
-  <MonoDevelop.Ide.ItemProperties.EduBridge.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="EduBridge.API/Controllers/DepartmentsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EduBridge.API/Repository/GenericRepository.cs">
     <Files>
-      <File FileName="EduBridge.API/Program.cs" Line="29" Column="1" IsPinned="True" />
-      <File FileName="EduBridge.API/EduBridge.API.csproj" Line="25" Column="14" IsPinned="True" />
+      <File FileName="EduBridge.API/Program.cs" Line="59" Column="1" IsPinned="True" />
+      <File FileName="EduBridge.API/EduBridge.API.csproj" Line="27" Column="14" IsPinned="True" />
       <File FileName="EduBridge.API/Data/Configurations/CollegeConfiguration.cs" />
-      <File FileName="EduBridge.API/Data/College.cs" Line="1" Column="1" />
-      <File FileName="EduBridge.API/Data/EduBridgeDbContext.cs" />
+      <File FileName="EduBridge.API/Data/College.cs" />
+      <File FileName="EduBridge.API/Data/EduBridgeDbContext.cs" Line="40" Column="2" />
       <File FileName="EduBridge.API/Data/Department.cs" />
       <File FileName="EduBridge.API/Data/Course.cs" />
       <File FileName="EduBridge.API/Data/Room.cs" />
       <File FileName="EduBridge.API/Data/Section.cs" />
       <File FileName="EduBridge.API/Data/Student.cs" />
       <File FileName="EduBridge.API/Data/Teacher.cs" />
-      <File FileName="EduBridge.API/Migrations/20240215214504_Initial Migration.cs" />
-      <File FileName="EduBridge.API/Models/Department/BaseDepartmentDto.cs" Line="6" Column="24" />
-      <File FileName="EduBridge.API/Models/Department/CreateDepartmentDto.cs" Line="6" Column="48" />
+      <File FileName="EduBridge.API/Models/Department/BaseDepartmentDto.cs" />
+      <File FileName="EduBridge.API/Models/Department/CreateDepartmentDto.cs" />
       <File FileName="EduBridge.API/Models/Department/GetDepartmentsDto.cs" />
-      <File FileName="EduBridge.API/Contracts/IGenericRepository.cs" Line="13" Column="28" />
-      <File FileName="EduBridge.API/Contracts/IDepartmentRepository.cs" Line="6" Column="41" />
-      <File FileName="EduBridge.API/Repository/GenericRepository.cs" Line="39" Column="1" />
-      <File FileName="EduBridge.API/Repository/DepartmentsRepository.cs" Line="4" Column="1" />
-      <File FileName="EduBridge.API/Controllers/WeatherForecastController.cs" Line="1" Column="1" />
-      <File FileName="EduBridge.API/Controllers/DepartmentsController.cs" Line="33" Column="51" />
-      <File FileName="EduBridge.API/Models/Department/DepartmentDto.cs" Line="1" Column="1" />
+      <File FileName="EduBridge.API/Contracts/IGenericRepository.cs" Line="11" Column="53" />
+      <File FileName="EduBridge.API/Repository/GenericRepository.cs" Line="73" Column="8" />
+      <File FileName="EduBridge.API/Repository/DepartmentsRepository.cs" />
+      <File FileName="EduBridge.API/Controllers/DepartmentsController.cs" />
+      <File FileName="EduBridge.API/Models/Department/DepartmentDto.cs" />
+      <File FileName="EduBridge.API/Exceptions/NotFoundException.cs" />
+      <File FileName="EduBridge.API/Middleware/ExceptionMiddleware.cs" />
+      <File FileName="EduBridge.API/Contracts/IDepartmentsRepository.cs" Line="12" Column="1" />
+      <File FileName="EduBridge.API/Data/EduBridgeUser.cs" />
+      <File FileName="EduBridge.API/Contracts/IAuthManagerRepository.cs" Line="9" Column="38" />
+      <File FileName="EduBridge.API/Controllers/AuthController.cs" />
+      <File FileName="EduBridge.API/Migrations/20240219203149_Add password to user model.cs" />
+      <File FileName="EduBridge.API/Models/Authentication/EduBridgeUserDto.cs" />
+      <File FileName="EduBridge.API/Models/Authentication/AuthResponseDto.cs" />
+      <File FileName="EduBridge.API/Models/Authentication/LoginDto.cs" />
+      <File FileName="EduBridge.API/Configurations/MapperConfig.cs" />
+      <File FileName="EduBridge.API/Migrations/20240220212015_add password column to user model.cs" />
+      <File FileName="EduBridge.API/Data/Configurations/RoleConfiguration.cs" />
+      <File FileName="EduBridge.API/Migrations/20240220222641_add nullable to departmentId fkey.cs" />
+      <File FileName="EduBridge.API/Controllers/CollegeController.cs" />
+      <File FileName="EduBridge.API/Repository/AuthManagerRepository.cs" Line="182" Column="10" />
+      <File FileName="EduBridge.API/Contracts/ICollegeRepository.cs" Line="7" Column="3" />
+      <File FileName="EduBridge.API/Repository/CollegeRepository.cs" />
+      <File FileName="EduBridge.API/Migrations/20240223154629_Remove Password From EduBridge User.cs" />
+      <File FileName="EduBridge.API/Models/QueryParameters.cs" />
+      <File FileName="EduBridge.API/Models/GenericResponse/SuccessResponse.cs" />
+      <File FileName="EduBridge.API/Contracts/IStudentsRepository.cs" />
+      <File FileName="EduBridge.API/Models/User/GetStudentsDto.cs" />
+      <File FileName="EduBridge.API/Models/User/GetStudentDetails.cs" />
+      <File FileName="EduBridge.API/Repository/StudentsRepository.cs" />
+      <File FileName="EduBridge.API/Migrations/20240303195145_Add Department Names As Unique Constraint.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="EduBridge" expanded="True">
+          <Node name="EduBridge">
             <Node name="NuGet.Config files" expanded="True" />
-            <Node name="EduBridge.API" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Configurations" expanded="True" />
+            <Node name="EduBridge.API">
               <Node name="Contracts" expanded="True" />
-              <Node name="Controllers" expanded="True">
-                <Node name="DepartmentsController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Exceptions" expanded="True" />
+              <Node name="Middleware" expanded="True" />
               <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True">
-                <Node name="Department" expanded="True" />
+                <Node name="Authentication" expanded="True" />
+                <Node name="GenericResponse" expanded="True" />
+                <Node name="User" expanded="True" />
               </Node>
-              <Node name="Properties" expanded="True" />
-              <Node name="Repository" expanded="True" />
+              <Node name="Repository" expanded="True">
+                <Node name="GenericRepository.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.EduBridge.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
