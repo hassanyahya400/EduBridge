@@ -20,7 +20,9 @@ namespace EduBridge.API.Configurations
 
             CreateMap<Student, EduBridgeUserDto>().ReverseMap();
             CreateMap<Student, GetStudentsDto>().ReverseMap();
-            CreateMap<Student, GetStudentDetails>().ReverseMap();
+            CreateMap<Student, GetStudentDetailsDto>().ReverseMap();
+            CreateMap<UpdateStudentDto, Student>()
+                .ForAllMembers(option => option.Condition((source, dest, srcMember) => srcMember != null));
 
             CreateMap<EduBridgeUser, EduBridgeUserDto>().ReverseMap();
         }

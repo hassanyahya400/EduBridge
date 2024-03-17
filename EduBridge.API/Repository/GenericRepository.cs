@@ -92,7 +92,14 @@ namespace EduBridge.API.Repository
 
         public async Task<T?> GetOneAsync(string id)
         {
-            return await _context.Set<T>().FindAsync(id);
+            if (Int32.TryParse(id, out int intId))
+            {
+                return await _context.Set<T>().FindAsync(intId);
+            }
+            else
+            {
+                return await _context.Set<T>().FindAsync(id);
+            }
         }
 
         public async Task UpdateAsync(string id, T entity)

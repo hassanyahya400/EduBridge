@@ -4,7 +4,8 @@ namespace EduBridge.API.Models.User
 {
     public class GetStudentsDto : BaseUserDto
     {
-        [Required]
+        public string? Id { get; set; }
+
         public string? Level { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace EduBridge.API.Models.User
 {
-    public class GetStudentDetails : GetStudentsDto
+    public class GetStudentDetailsDto : GetStudentsDto
     {
         public string? UserName { get; set; }
 

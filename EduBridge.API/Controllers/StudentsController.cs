@@ -2,6 +2,7 @@
 using AutoMapper;
 using EduBridge.API.Contracts;
 using EduBridge.API.Data;
+using EduBridge.API.Exceptions;
 using EduBridge.API.Models;
 using EduBridge.API.Models.Authentication;
 using EduBridge.API.Models.GenericResponse;
@@ -43,17 +44,34 @@ namespace EduBridge.API.Controllers
         }
 
         [HttpGet("students/{id}")]
-        public async Task<ActionResult<GetStudentDetails>> GetOne(string id)
+        public async Task<ActionResult<GetStudentDetailsDto>> GetOne(string id)
         {
             var student = await _studentsRepository.GetOneAsync(id);
-            _mapper.Map<GetStudentDetails>(student);
+            var result = _mapper.Map<GetStudentDetailsDto>(student);
 
             return Ok(new SuccessResponse
             {
                 Message = "Students retrieved successfully",
-                Data = student
+                Data = result
             });
         }
+
+        [HttpPut("students/{id}")]
+        public async Task<ActionResult> Update(string id, [FromBody] UpdateStudentDto updateStudentDto)
+        {
+            var student = await _studentsRepository.GetOneAsync(id) ?? throw new NotFoundException("Student", id);
+
+            _mapper.Map(updateStudentDto, student);
+
+            await _studentsRepository.UpdateAsync(id, student);
+
+            return Ok(new SuccessResponse
+            {
+                Message = $"Student record updated successfully"
+            });
+
+        }
+
     }
 }
 

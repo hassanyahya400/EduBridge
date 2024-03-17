@@ -56,7 +56,7 @@ namespace EduBridge.API.Controllers
 
         // GET: api/Departments/5
         [HttpGet("{id}", Name = "Get")]
-        public async Task<ActionResult<DepartmentDto>> Get(string id)
+        public async Task<ActionResult<DepartmentDto>> GetOne(string id)
         {
             var department = await _departmentsRepository.GetOneAsync(id);
 
@@ -88,7 +88,7 @@ namespace EduBridge.API.Controllers
 
         // PUT: api/Departments/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(string id, [FromBody] CreateDepartmentDto updateDepartmentDto)
+        public async Task<ActionResult> Update(string id, [FromBody] CreateDepartmentDto updateDepartmentDto)
         {
             var department = await _departmentsRepository.GetOneAsync(id) ?? throw new NotFoundException("Department", id);
 
